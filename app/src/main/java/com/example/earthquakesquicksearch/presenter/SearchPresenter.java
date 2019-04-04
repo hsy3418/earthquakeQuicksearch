@@ -16,8 +16,8 @@ public class SearchPresenter implements IsearchPreseter {
     }
 
     @Override
-    public void fetchEarthquakesData(String url) {
-        isearchModel.search(url);
+    public void fetchEarthquakesData(String format,String startTime,String endTime, String minMagnitude) {
+        isearchModel.search(format,startTime,endTime,minMagnitude);
     }
 
     @Override

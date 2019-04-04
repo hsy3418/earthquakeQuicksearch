@@ -4,7 +4,7 @@ import com.example.earthquakesquicksearch.pojo.EarthquakeResponse;
 
 public interface IsearchPreseter {
 
-    void fetchEarthquakesData(String url);
+    void fetchEarthquakesData(String format,String startTime,String endTime, String minMagnitude);
 
     void fetchSuccess(EarthquakeResponse earthquakeResponse);
 

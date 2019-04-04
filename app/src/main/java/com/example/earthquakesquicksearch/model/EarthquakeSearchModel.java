@@ -18,12 +18,11 @@ public class EarthquakeSearchModel implements IsearchModel {
     }
 
     @Override
-    public void search(String url) {
+    public void search(String format,String startTime,String endTime, String minMagnitude) {
         //TODO this will trigger a http call to get the response, could check okhttp3,
         //TODO need to create a callback method, and return results in callback method
-
         EarthQuakesFetchService service = RetrofitClientInstance.getClient().create(EarthQuakesFetchService.class);
-        Call<EarthquakeResponse> call = service.getEarthQuakeResponse();
+        Call<EarthquakeResponse> call = service.getEarthQuakeResponse(format,startTime,endTime,minMagnitude);
         call.enqueue(new Callback<EarthquakeResponse>() {
 
             @Override

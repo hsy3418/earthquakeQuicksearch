@@ -4,7 +4,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClientInstance {
-    public static final String BASE_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query?";
+    public static final String BASE_URL = "https://earthquake.usgs.gov/fdsnws/event/";
     public static Retrofit retrofit = null;
     public static Retrofit getClient() {
         if (retrofit == null) {
