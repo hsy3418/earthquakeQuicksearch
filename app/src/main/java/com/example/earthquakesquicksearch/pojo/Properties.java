@@ -14,10 +14,10 @@ public class Properties {
     private String place;
     @SerializedName("time")
     @Expose
-    private Integer time;
+    private Long time;
     @SerializedName("updated")
     @Expose
-    private Integer updated;
+    private Long updated;
     @SerializedName("tz")
     @Expose
     private Integer tz;
@@ -29,16 +29,16 @@ public class Properties {
     private String detail;
     @SerializedName("felt")
     @Expose
-    private Object felt;
+    private String felt;
     @SerializedName("cdi")
     @Expose
-    private Object cdi;
+    private String cdi;
     @SerializedName("mmi")
     @Expose
-    private Object mmi;
+    private Double mmi;
     @SerializedName("alert")
     @Expose
-    private Object alert;
+    private String alert;
     @SerializedName("status")
     @Expose
     private String status;
@@ -92,37 +92,7 @@ public class Properties {
     public Properties() {
     }
 
-    /**
-     *
-     * @param detail
-     * @param type
-     * @param net
-     * @param tsunami
-     * @param sources
-     * @param title
-     * @param time
-     * @param updated
-     * @param mag
-     * @param place
-     * @param types
-     * @param status
-     * @param alert
-     * @param ids
-     * @param rms
-     * @param code
-     * @param url
-     * @param magType
-     * @param mmi
-     * @param cdi
-     * @param tz
-     * @param felt
-     * @param nst
-     * @param dmin
-     * @param sig
-     * @param gap
-     */
-    public Properties(Double mag, String place, Integer time, Integer updated, Integer tz, String url, String detail, Object felt, Object cdi, Object mmi, Object alert, String status, Integer tsunami, Integer sig, String net, String code, String ids, String sources, String types, Object nst, Double dmin, Double rms, Integer gap, String magType, String type, String title) {
-        super();
+    public Properties(Double mag, String place, Long time, Long updated, Integer tz, String url, String detail, String felt, String cdi, Double mmi, String alert, String status, Integer tsunami, Integer sig, String net, String code, String ids, String sources, String types, Object nst, Double dmin, Double rms, Integer gap, String magType, String type, String title) {
         this.mag = mag;
         this.place = place;
         this.time = time;
@@ -167,19 +137,19 @@ public class Properties {
         this.place = place;
     }
 
-    public Integer getTime() {
+    public Long getTime() {
         return time;
     }
 
-    public void setTime(Integer time) {
+    public void setTime(Long time) {
         this.time = time;
     }
 
-    public Integer getUpdated() {
+    public Long getUpdated() {
         return updated;
     }
 
-    public void setUpdated(Integer updated) {
+    public void setUpdated(Long updated) {
         this.updated = updated;
     }
 
@@ -207,35 +177,35 @@ public class Properties {
         this.detail = detail;
     }
 
-    public Object getFelt() {
+    public String getFelt() {
         return felt;
     }
 
-    public void setFelt(Object felt) {
+    public void setFelt(String felt) {
         this.felt = felt;
     }
 
-    public Object getCdi() {
+    public String getCdi() {
         return cdi;
     }
 
-    public void setCdi(Object cdi) {
+    public void setCdi(String cdi) {
         this.cdi = cdi;
     }
 
-    public Object getMmi() {
+    public Double getMmi() {
         return mmi;
     }
 
-    public void setMmi(Object mmi) {
+    public void setMmi(Double mmi) {
         this.mmi = mmi;
     }
 
-    public Object getAlert() {
+    public String getAlert() {
         return alert;
     }
 
-    public void setAlert(Object alert) {
+    public void setAlert(String alert) {
         this.alert = alert;
     }
 

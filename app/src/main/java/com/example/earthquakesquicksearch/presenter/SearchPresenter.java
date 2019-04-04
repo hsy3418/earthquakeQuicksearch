@@ -1,9 +1,14 @@
 package com.example.earthquakesquicksearch.presenter;
 
+import com.example.earthquakesquicksearch.databinding.Earthquake;
 import com.example.earthquakesquicksearch.model.EarthquakeSearchModel;
 import com.example.earthquakesquicksearch.model.IsearchModel;
 import com.example.earthquakesquicksearch.pojo.EarthquakeResponse;
+import com.example.earthquakesquicksearch.pojo.Feature;
 import com.example.earthquakesquicksearch.view.ISearchView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SearchPresenter implements IsearchPreseter {
     private ISearchView iSearchView;
@@ -18,11 +23,19 @@ public class SearchPresenter implements IsearchPreseter {
     @Override
     public void fetchEarthquakesData(String format,String startTime,String endTime, String minMagnitude) {
         isearchModel.search(format,startTime,endTime,minMagnitude);
+
     }
 
     @Override
     public void fetchSuccess(EarthquakeResponse earthquakeResponse) {
-        iSearchView.showDetailAcitivty();
+        //create a list of earthquake objests from earthquakeResponse
+        List<Feature> featureList = earthquakeResponse.getFeatures();
+        List<Earthquake> earthquakeList = new ArrayList<>();
+        for(Feature e:featureList){
+            Earthquake earthquake = new Earthquake(e.getProperties().getTitle(),e.getProperties().getTime().toString(),e.getProperties().getMag().toString());
+            earthquakeList.add(earthquake);
+        }
+        iSearchView.showDetailAcitivty(earthquakeList);
     }
 
     @Override

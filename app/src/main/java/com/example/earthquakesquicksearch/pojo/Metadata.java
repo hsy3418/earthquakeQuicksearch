@@ -8,7 +8,7 @@ public class Metadata {
 
     @SerializedName("generated")
     @Expose
-    private Integer generated;
+    private Long generated;
     @SerializedName("url")
     @Expose
     private String url;
@@ -41,7 +41,7 @@ public class Metadata {
      * @param api
      * @param url
      */
-    public Metadata(Integer generated, String url, String title, Integer status, String api, Integer count) {
+    public Metadata(Long generated, String url, String title, Integer status, String api, Integer count) {
         super();
         this.generated = generated;
         this.url = url;
@@ -51,11 +51,11 @@ public class Metadata {
         this.count = count;
     }
 
-    public Integer getGenerated() {
+    public Long getGenerated() {
         return generated;
     }
 
-    public void setGenerated(Integer generated) {
+    public void setGenerated(Long generated) {
         this.generated = generated;
     }
 

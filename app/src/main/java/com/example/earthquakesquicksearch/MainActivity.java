@@ -1,5 +1,7 @@
 package com.example.earthquakesquicksearch;
 
+import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,8 +10,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.earthquakesquicksearch.databinding.Earthquake;
 import com.example.earthquakesquicksearch.presenter.SearchPresenter;
 import com.example.earthquakesquicksearch.view.ISearchView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements ISearchView, View.OnClickListener {
 
@@ -34,8 +40,14 @@ public class MainActivity extends AppCompatActivity implements ISearchView, View
     }
 
     @Override
-    public void showDetailAcitivty() {
-        Toast.makeText(this,"Success connection",Toast.LENGTH_LONG).show();
+    public void showDetailAcitivty(List<Earthquake> earthquakes) {
+        Intent intent = new Intent(this, EarthquakeListActivity.class);
+
+        Bundle bundle = new Bundle();
+
+        bundle.putParcelableArrayList("mylist", (ArrayList<? extends Parcelable>) earthquakes);
+        intent.putExtras(bundle);
+        this.startActivity(intent);
     }
 
     @Override
