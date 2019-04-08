@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface ISearchView {
 
+    void showProgressBar(boolean show);
+
     void showDetailAcitivty(List<Earthquake> earthquakes);
 
     void showFailToast();

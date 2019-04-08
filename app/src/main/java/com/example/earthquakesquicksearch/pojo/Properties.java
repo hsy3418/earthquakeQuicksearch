@@ -74,7 +74,7 @@ public class Properties {
     private Double rms;
     @SerializedName("gap")
     @Expose
-    private Integer gap;
+    private Double gap;
     @SerializedName("magType")
     @Expose
     private String magType;
@@ -92,7 +92,7 @@ public class Properties {
     public Properties() {
     }
 
-    public Properties(Double mag, String place, Long time, Long updated, Integer tz, String url, String detail, String felt, String cdi, Double mmi, String alert, String status, Integer tsunami, Integer sig, String net, String code, String ids, String sources, String types, Object nst, Double dmin, Double rms, Integer gap, String magType, String type, String title) {
+    public Properties(Double mag, String place, Long time, Long updated, Integer tz, String url, String detail, String felt, String cdi, Double mmi, String alert, String status, Integer tsunami, Integer sig, String net, String code, String ids, String sources, String types, Object nst, Double dmin, Double rms, Double gap, String magType, String type, String title) {
         this.mag = mag;
         this.place = place;
         this.time = time;
@@ -297,11 +297,11 @@ public class Properties {
         this.rms = rms;
     }
 
-    public Integer getGap() {
+    public Double getGap() {
         return gap;
     }
 
-    public void setGap(Integer gap) {
+    public void setGap(Double gap) {
         this.gap = gap;
     }
 

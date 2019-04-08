@@ -1,7 +1,9 @@
 package com.example.earthquakesquicksearch;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +13,16 @@ import android.widget.TextView;
 
 import com.example.earthquakesquicksearch.databinding.Earthquake;
 
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.joda.time.LocalTime;
 import org.w3c.dom.Text;
 
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
@@ -56,13 +66,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
         return vh;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder myViewHolder, int position) {
         Earthquake earthquake = earthquakeList.get(position);
         TextView tvPlace = myViewHolder.tvPlace;
         tvPlace.setText(earthquake.getPlace());
         TextView tvTime = myViewHolder.tvTime;
-        tvTime.setText(earthquake.getTime());
+
+        // convert millis value to a timezone
+        Instant instant = Instant.ofEpochMilli(Long.parseLong(earthquake.getTime()));
+        ZonedDateTime z = instant.atZone(ZoneId.of("Australia/Sydney"));
+// format it
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy/MM/dd/ hh:mm ");
+
+
+        tvTime.setText(fmt.format(z));
         TextView tvMag = myViewHolder.tvMagnitude;
         tvMag.setText(earthquake.getMagnitude());
 

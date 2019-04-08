@@ -22,12 +22,14 @@ public class SearchPresenter implements IsearchPreseter {
 
     @Override
     public void fetchEarthquakesData(String format,String startTime,String endTime, String minMagnitude) {
+        iSearchView.showProgressBar(true);
         isearchModel.search(format,startTime,endTime,minMagnitude);
 
     }
 
     @Override
     public void fetchSuccess(EarthquakeResponse earthquakeResponse) {
+        iSearchView.showProgressBar(false);
         //create a list of earthquake objests from earthquakeResponse
         List<Feature> featureList = earthquakeResponse.getFeatures();
         List<Earthquake> earthquakeList = new ArrayList<>();
@@ -40,6 +42,7 @@ public class SearchPresenter implements IsearchPreseter {
 
     @Override
     public void fetchFail() {
+        iSearchView.showProgressBar(false);
         iSearchView.showFailToast();
     }
 }

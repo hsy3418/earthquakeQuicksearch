@@ -1,4 +1,24 @@
 <resources>
     <string name="app_name">EarthquakesQuickSearch</string>
     <string name="title_activity_earthquake_list">EarthquakeListActivity</string>
+
+    <string name="timeframe_prompt">Choose a country</string>
+
+    <string-array name="Timeframe">
+        <item>Past 1 day</item>
+        <item>Past 3 days</item>
+        <item>Past 7 days</item>
+        <item>Past 30days</item>
+
+    </string-array>
+
+    <string name="magnitude_prompt">Choose a country</string>
+
+    <string-array name="magnitude">
+        <item>M1.0+</item>
+        <item>M2.5+</item>
+        <item>M4.5+</item>
+
+
+    </string-array>
 </resources>

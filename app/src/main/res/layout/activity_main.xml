@@ -13,60 +13,27 @@
         android:layout_width="match_parent"
         android:text="Choose a timeframe"
         android:layout_height="wrap_content" />
-    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    <Spinner
+        android:id="@+id/timeframeSpinner"
         android:layout_width="match_parent"
-        android:layout_marginBottom="20dp"
-        android:id="@+id/timeRg"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <RadioButton android:id="@+id/past1hrs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="past 1 hrs"
-     />
-        <RadioButton android:id="@+id/past7hrs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="pass 7 hrs"
-            />
-        <RadioButton android:id="@+id/past1week"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="pass 1 week"
-         />
-        <RadioButton android:id="@+id/past1month"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="pass 1 month"
-         />
-    </RadioGroup>
+        android:entries="@array/Timeframe"
+        android:prompt="@string/timeframe_prompt" />
 
     <TextView
         android:layout_width="match_parent"
-        android:text="Choose a timeframe"
+        android:text="Choose a Magnitude"
         android:layout_height="wrap_content" />
-    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <Spinner
+        android:id="@+id/magSpinner"
         android:layout_width="match_parent"
-        android:layout_marginBottom="20dp"
-        android:id="@+id/magRg"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <RadioButton android:id="@+id/m2.5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="m 2.5+"
-   />
-        <RadioButton android:id="@+id/m5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="m4.5+"
-        />
-
-    </RadioGroup>
+        android:entries="@array/magnitude"
+        android:prompt="@string/magnitude_prompt" />
 
     <Button
+        android:layout_marginTop="500dp"
         android:id="@+id/searchbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

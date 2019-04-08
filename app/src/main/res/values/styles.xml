@@ -17,4 +17,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <color name="balck">#000000</color>
+    <color name="title">#00abd7</color>
+    <color name="titlecolor">#666666</color>
+
 </resources>
+
