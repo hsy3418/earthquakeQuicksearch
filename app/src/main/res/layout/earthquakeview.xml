@@ -9,14 +9,10 @@
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_height="wrap_content">
-        <TextView
-            android:textColor="@color/balck"
-            android:layout_width="wrap_content"
-            android:text="Earthquake place:"
-            android:layout_marginRight="10dp"
-            android:layout_height="wrap_content" />
+
     <TextView
-        android:textColor="@color/colorPrimary"
+        android:textSize="20dp"
+        android:textColor="@color/colorWhite"
         android:id="@+id/placeTv"
         android:layout_width="match_parent"
         android:text="Earthquake place"
@@ -28,13 +24,15 @@
         android:orientation="horizontal"
         android:layout_height="wrap_content">
         <TextView
+            android:textSize="20dp"
             android:textColor="@color/balck"
             android:layout_width="wrap_content"
             android:text="Magnitude:"
             android:layout_marginRight="10dp"
             android:layout_height="wrap_content" />
         <TextView
-            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:textColor="@color/colorWhite"
             android:id="@+id/magTv"
             android:layout_width="match_parent"
             android:text="Earthquake magnitude"
@@ -46,13 +44,15 @@
         android:orientation="horizontal"
         android:layout_height="wrap_content">
         <TextView
+            android:textSize="20dp"
             android:textColor="@color/balck"
             android:layout_width="wrap_content"
             android:text="Time:"
             android:layout_marginRight="10dp"
             android:layout_height="wrap_content" />
         <TextView
-            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:textColor="@color/colorWhite"
             android:id="@+id/timeTv"
             android:layout_width="match_parent"
             android:text="Earthquake magnitude"

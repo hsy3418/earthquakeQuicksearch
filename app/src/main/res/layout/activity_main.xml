@@ -3,17 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_margin="20dp"
+    android:background="@color/colorPrimaryDark"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
 
     <TextView
+
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:text="Choose a timeframe"
         android:layout_height="wrap_content" />
     <Spinner
+        android:textSize="20dp"
+        android:textColor="#ffffff"
+        style="@style/spinner_style"
+        android:layout_margin="10dp"
         android:id="@+id/timeframeSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,11 +29,20 @@
         android:prompt="@string/timeframe_prompt" />
 
     <TextView
+        android:textColor="#ffffff"
+
+        android:textSize="20dp"
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:text="Choose a Magnitude"
         android:layout_height="wrap_content" />
 
     <Spinner
+        android:textColor="#ffffff"
+        style="@style/spinner_style"
+
+        android:textSize="20dp"
+        android:layout_margin="10dp"
         android:id="@+id/magSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,8 +50,11 @@
         android:prompt="@string/magnitude_prompt" />
 
     <Button
-        android:layout_marginTop="500dp"
+
+        android:layout_marginTop="100dp"
         android:id="@+id/searchbtn"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Search" />

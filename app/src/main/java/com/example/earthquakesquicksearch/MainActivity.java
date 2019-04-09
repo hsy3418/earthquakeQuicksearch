@@ -2,6 +2,7 @@ package com.example.earthquakesquicksearch;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.earthquakesquicksearch.databinding.Earthquake;
@@ -102,6 +104,10 @@ public class MainActivity extends AppCompatActivity implements ISearchView, View
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             String item = parent.getItemAtPosition(position).toString();
+
+
+        ((TextView) parent.getChildAt(0)).setTextSize(20);
+
     }
 
     @Override
