@@ -21,9 +21,9 @@ public class SearchPresenter implements IsearchPreseter {
     }
 
     @Override
-    public void fetchEarthquakesData(String format,String startTime,String endTime, String minMagnitude) {
+    public void fetchEarthquakesData(String format,String startTime,String endTime, String minMagnitude,String orderBy) {
         iSearchView.showProgressBar(true);
-        isearchModel.search(format,startTime,endTime,minMagnitude);
+        isearchModel.search(format,startTime,endTime,minMagnitude,orderBy);
 
     }
 

@@ -11,5 +11,6 @@ public interface EarthQuakesFetchService {
 
     @GET("1/query")
     Call<EarthquakeResponse> getEarthQuakeResponse(@Query("format") String format,@Query("starttime") String startTime,
-                                                   @Query("endtime") String endtime,@Query("minmagnitude") String minmagnitude);
+                                                   @Query("endtime") String endtime,@Query("minmagnitude") String minmagnitude,
+                                                   @Query("orderby") String orderby);
 }

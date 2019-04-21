@@ -21,4 +21,11 @@
 
 
     </string-array>
+    <string-array name="sortedby">
+        <item>Time Desc</item>
+        <item>Time Asc</item>
+        <item>Magnitude Desc</item>
+        <item>Magnitude Asc</item>
+
+    </string-array>
 </resources>

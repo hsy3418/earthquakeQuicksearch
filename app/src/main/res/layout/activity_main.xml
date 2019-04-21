@@ -49,6 +49,26 @@
         android:entries="@array/magnitude"
         android:prompt="@string/magnitude_prompt" />
 
+    <TextView
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:text="Sorted By"
+        android:layout_height="wrap_content" />
+
+    <Spinner
+        android:textColor="#ffffff"
+        style="@style/spinner_style"
+
+        android:textSize="20dp"
+        android:layout_margin="10dp"
+        android:id="@+id/sortSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/sortedby"
+     />
+
     <Button
 
         android:layout_marginTop="100dp"

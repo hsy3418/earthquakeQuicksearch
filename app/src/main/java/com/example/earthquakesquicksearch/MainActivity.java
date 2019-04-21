@@ -31,11 +31,14 @@ public class MainActivity extends AppCompatActivity implements ISearchView, View
 
     private Spinner timeFrameSpinner;
     private Spinner magnitudeSpinner;
+    private Spinner sortBySpinner;
+
     private Button searchButton;
     private String timeQuery;
     private String magQuery;
     private SearchPresenter searchPresenter;
     private ProgressDialog progressDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +48,13 @@ public class MainActivity extends AppCompatActivity implements ISearchView, View
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+
         searchPresenter = new SearchPresenter(this);
         magnitudeSpinner = findViewById(R.id.magSpinner);
         timeFrameSpinner = findViewById(R.id.timeframeSpinner);
+        sortBySpinner = findViewById(R.id.sortSpinner);
+
+        sortBySpinner.setOnItemSelectedListener(this);
         timeFrameSpinner.setOnItemSelectedListener(this);
         magnitudeSpinner.setOnItemSelectedListener(this);
 
@@ -90,13 +97,14 @@ public class MainActivity extends AppCompatActivity implements ISearchView, View
 
        String timeframeQuery = (String) timeFrameSpinner.getSelectedItem();
        String magQuery = (String)magnitudeSpinner.getSelectedItem();
+       String sortBy = (String)sortBySpinner.getSelectedItem();
 
        String startTime  = getStartTime(timeframeQuery);
        String endTime = getEndTime();
        String minMag = getMinMag(magQuery);
+       String orderBy = getSorted(sortBy);
 
-
-        searchPresenter.fetchEarthquakesData("geojson",startTime,endTime,minMag);
+        searchPresenter.fetchEarthquakesData("geojson",startTime,endTime,minMag,orderBy);
 
 
     }
@@ -141,6 +149,20 @@ public class MainActivity extends AppCompatActivity implements ISearchView, View
         DateTimeFormatter dtfOut = DateTimeFormat.forPattern("yyyy/MM/dd");
 
         return dtfOut.print(startTime);
+    }
+
+
+    private String getSorted(String sortedBy){
+        String orderBy;
+        switch (sortedBy){
+            case "Time Desc" : orderBy = "time";break;
+            case "Time Asc" : orderBy = "time-asc";break;
+            case "Magnitude Desc" : orderBy = "magnitude";break;
+            case "Magnitude Asc" : orderBy = "magnitude-asc";break;
+            default:orderBy="time";
+       }
+
+       return orderBy;
     }
 
     private String getEndTime(){
