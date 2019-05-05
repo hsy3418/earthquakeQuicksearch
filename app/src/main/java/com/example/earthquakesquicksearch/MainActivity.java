@@ -17,6 +17,7 @@ import com.example.earthquakesquicksearch.databinding.Earthquake;
 import com.example.earthquakesquicksearch.presenter.SearchPresenter;
 import com.example.earthquakesquicksearch.view.ISearchView;
 
+import org.angmarch.views.NiceSpinner;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -24,14 +25,16 @@ import org.joda.time.format.DateTimeFormatter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.LinkedList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements ISearchView, View.OnClickListener, AdapterView.OnItemSelectedListener{
 
-    private Spinner timeFrameSpinner;
-    private Spinner magnitudeSpinner;
-    private Spinner sortBySpinner;
+    private NiceSpinner timeFrameSpinner;
+    private NiceSpinner magnitudeSpinner;
+    private NiceSpinner sortBySpinner;
 
     private Button searchButton;
     private String timeQuery;
@@ -50,9 +53,16 @@ public class MainActivity extends AppCompatActivity implements ISearchView, View
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
         searchPresenter = new SearchPresenter(this);
-        magnitudeSpinner = findViewById(R.id.magSpinner);
-        timeFrameSpinner = findViewById(R.id.timeframeSpinner);
-        sortBySpinner = findViewById(R.id.sortSpinner);
+        List<String> timeset = new LinkedList<>(Arrays.asList("Past 1 day", "Past 3 days", "Past 7 days", "Past 30days"));
+        List<String> magnitudeSet = new LinkedList<>(Arrays.asList("M1.0+", "M2.5+", "M4.5+"));
+        List<String> sortedbySet = new LinkedList<>(Arrays.asList("Time Desc", "Time Asc", "Magnitude Desc","Magnitude Asc"));
+
+        magnitudeSpinner = (NiceSpinner) findViewById(R.id.magSpinner);
+        magnitudeSpinner.attachDataSource(magnitudeSet);
+        timeFrameSpinner = (NiceSpinner) findViewById(R.id.timeframeSpinner);
+        timeFrameSpinner.attachDataSource(timeset);
+        sortBySpinner = (NiceSpinner)findViewById(R.id.sortSpinner);
+        sortBySpinner.attachDataSource(sortedbySet);
 
         sortBySpinner.setOnItemSelectedListener(this);
         timeFrameSpinner.setOnItemSelectedListener(this);
@@ -94,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements ISearchView, View
 
     @Override
     public void onClick(View v) {
-
        String timeframeQuery = (String) timeFrameSpinner.getSelectedItem();
        String magQuery = (String)magnitudeSpinner.getSelectedItem();
        String sortBy = (String)sortBySpinner.getSelectedItem();

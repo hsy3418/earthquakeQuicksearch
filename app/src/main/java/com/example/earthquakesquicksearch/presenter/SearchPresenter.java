@@ -34,7 +34,10 @@ public class SearchPresenter implements IsearchPreseter {
         List<Feature> featureList = earthquakeResponse.getFeatures();
         List<Earthquake> earthquakeList = new ArrayList<>();
         for(Feature e:featureList){
-            Earthquake earthquake = new Earthquake(e.getProperties().getTitle(),e.getProperties().getTime().toString(),e.getProperties().getMag().toString());
+            Double lon = e.getGeometry().getCoordinates().get(0);
+            Double lat = e.getGeometry().getCoordinates().get(1);
+
+            Earthquake earthquake = new Earthquake(e.getProperties().getTitle(),e.getProperties().getTime().toString(),e.getProperties().getMag().toString(),lon,lat);
             earthquakeList.add(earthquake);
         }
         iSearchView.showDetailAcitivty(earthquakeList);

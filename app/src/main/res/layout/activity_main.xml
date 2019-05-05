@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
+    android:padding="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -11,66 +11,84 @@
 
     <TextView
 
-        android:textColor="#ffffff"
-        android:textSize="20dp"
+        android:textColor="#000000"
+        android:textSize="18dp"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:text="Choose a timeframe"
+        android:text="From"
         android:layout_height="wrap_content" />
-    <Spinner
-        android:textSize="20dp"
-        android:textColor="#ffffff"
-        style="@style/spinner_style"
-        android:layout_margin="10dp"
+    <org.angmarch.views.NiceSpinner
+        android:elevation="2dp"
+
         android:id="@+id/timeframeSpinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/Timeframe"
-        android:prompt="@string/timeframe_prompt" />
+
+        android:layout_height="wrap_content"/>
+  <!--wrap_content  <Spinner-->
+        <!--android:textSize="30dp"-->
+        <!--android:textColor="#ffffff"-->
+        <!--style="@style/spinner_style"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:id="@+id/timeframeSpinner"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:entries="@array/Timeframe"-->
+        <!--android:prompt="@string/timeframe_prompt" />-->
 
     <TextView
-        android:textColor="#ffffff"
-
-        android:textSize="20dp"
+        android:textColor="#000000"
+        android:textSize="18dp"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:text="Choose a Magnitude"
+        android:text="A Magnitude at"
         android:layout_height="wrap_content" />
-
-    <Spinner
-        android:textColor="#ffffff"
-        style="@style/spinner_style"
-
-        android:textSize="20dp"
-        android:layout_margin="10dp"
+    <org.angmarch.views.NiceSpinner
         android:id="@+id/magSpinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/magnitude"
-        android:prompt="@string/magnitude_prompt" />
+        android:elevation="2dp"
+        android:textColor="@color/balck"
+
+        android:layout_height="wrap_content"/>
+    <!--<Spinner-->
+        <!--android:textColor="#ffffff"-->
+        <!--style="@style/spinner_style"-->
+
+        <!--android:textSize="30dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:id="@+id/magSpinner"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:entries="@array/magnitude"-->
+        <!--android:prompt="@string/magnitude_prompt" />-->
 
     <TextView
-        android:textColor="#ffffff"
-        android:textSize="20dp"
+        android:textColor="#000000"
+        android:textSize="18dp"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:text="Sorted By"
         android:layout_height="wrap_content" />
-
-    <Spinner
-        android:textColor="#ffffff"
-        style="@style/spinner_style"
-
-        android:textSize="20dp"
-        android:layout_margin="10dp"
+    <org.angmarch.views.NiceSpinner
         android:id="@+id/sortSpinner"
+        android:elevation="2dp"
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/sortedby"
-     />
+        android:layout_height="wrap_content"/>
+    <!--<Spinner-->
+        <!--android:textColor="#ffffff"-->
+        <!--style="@style/spinner_style"-->
+
+        <!--android:textSize="20dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:id="@+id/sortSpinner"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:entries="@array/sortedby"-->
+     <!--/>-->
 
     <Button
-
+        android:textColor="@color/colorWhite"
+        android:background="#3700B3"
         android:layout_marginTop="100dp"
         android:id="@+id/searchbtn"
         android:layout_marginRight="30dp"

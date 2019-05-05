@@ -2,6 +2,7 @@ package com.example.earthquakesquicksearch;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -44,9 +45,22 @@ public class EarthquakeListActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+
         // specify an adapter (see also next example)
         //List<Earthquake> myDataset = new ArrayList<>();
-        mAdapter = new MyAdapter(earthquakeList);
+        mAdapter = new MyAdapter(earthquakeList, new MyAdapter.CustomItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+               Earthquake earthquake =  earthquakeList.get(position);
+               Intent intent = new Intent(EarthquakeListActivity.this, MapsActivity.class);
+
+               Bundle bundle = new Bundle();
+               bundle.putParcelable("earthquake",earthquake);
+
+               intent.putExtras(bundle);
+               EarthquakeListActivity.this.startActivity(intent);
+            }
+        });
         recyclerView.setAdapter(mAdapter);
     }
 

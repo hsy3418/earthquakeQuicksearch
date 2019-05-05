@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.earthquakesquicksearch.databinding.Earthquake;
@@ -28,10 +29,15 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
 
     private List<Earthquake> earthquakeList;
+    private   CustomItemClickListener listener;
 
+    public interface CustomItemClickListener {
+        public void onItemClick(View v, int position);
+    }
 
-    public MyAdapter(List<Earthquake> earthquakeList) {
+    public MyAdapter(List<Earthquake> earthquakeList,CustomItemClickListener listener) {
         this.earthquakeList = earthquakeList;
+        this.listener = listener;
     }
 
     // Provide a reference to the views for each data item
@@ -46,12 +52,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
 
         public MyViewHolder(View itemView) {
             super(itemView);
+            itemView.setTag(this);
+
             tvPlace = itemView.findViewById(R.id.placeTv);
             tvTime = itemView.findViewById(R.id.timeTv);
             tvMagnitude = itemView.findViewById(R.id.magTv);
 
 
         }
+
+
     }
     @NonNull
     @Override
@@ -59,10 +69,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
 
         Context context = parent.getContext();
         // create a new view
-        LinearLayout v = (LinearLayout) LayoutInflater.from(parent.getContext())
+        View mView = (RelativeLayout) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.earthquakeview, parent, false);
 
-        MyViewHolder vh = new MyViewHolder(v);
+        MyViewHolder vh = new MyViewHolder(mView);
+        mView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                listener.onItemClick(v, vh.getPosition());
+            }
+        });
         return vh;
     }
 
@@ -85,10 +101,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
         TextView tvMag = myViewHolder.tvMagnitude;
         tvMag.setText(earthquake.getMagnitude());
 
+
+
+
     }
+
 
     @Override
     public int getItemCount() {
         return earthquakeList.size();
     }
+
+
+
 }
